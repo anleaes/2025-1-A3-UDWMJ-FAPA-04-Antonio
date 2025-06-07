@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Alunos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <br />
+        <h5><b>Lista de Alunos</b></h5>
+        <div class="row">
+            <div class ="col-md-12">
+                <br />
+                    <a href="{% url 'alunos:add_alunos' %}">Cadastro de novo aluno</a>
+                <br />
+                <br />
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Ano de Nascimento</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aluno in alunos %}
+                        <tr>
+                            <th scope="row">{{ client.id }}</th>
+                            <td>{{ client.name }}</td>
+                            <td>{{ client.date_birth }}</td>
+                            <td>{{ client.gender }}</td>
+                            <td>{{ client.email }}</td>
+                            <td>
+                                <a href="{% url 'alunos:edit_alunos' alunos.id %}" class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'alunos:delete_aluno' alunos.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                            </td>
+                        </tr> 
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
