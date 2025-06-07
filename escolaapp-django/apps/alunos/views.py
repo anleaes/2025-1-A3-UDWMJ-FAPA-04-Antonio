@@ -27,10 +27,10 @@ def list_alunos(request):
     }
     return render(request, template_name, context)
 
-def edit_aluno(request, id_product):
+def edit_aluno(request, id_aluno):
     template_name = 'alunos/add_aluno.html'
     context = {}
-    aluno = get_object_or_404(Aluno, id = id_product)
+    aluno = get_object_or_404(Aluno, id = id_aluno)
     if request.method == 'POST':
         form = AlunoForm(request.POST, instance=aluno)
         if form.is_valid():

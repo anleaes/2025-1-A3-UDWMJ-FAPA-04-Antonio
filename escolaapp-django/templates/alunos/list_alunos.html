@@ -14,7 +14,7 @@
         <div class="row">
             <div class ="col-md-12">
                 <br />
-                    <a href="{% url 'alunos:add_alunos' %}">Cadastro de novo aluno</a>
+                    <a href="{% url 'alunos:add_aluno' %}">Cadastro de novo aluno</a>
                 <br />
                 <br />
                 <table class="table table-hover">
@@ -32,16 +32,16 @@
                 <tbody>
                     {% for aluno in alunos %}
                         <tr>
-                            <th scope="row">{{ client.id }}</th>
-                            <td>{{ client.name }}</td>
-                            <td>{{ client.date_birth }}</td>
-                            <td>{{ client.gender }}</td>
-                            <td>{{ client.email }}</td>
+                            <th scope="row">{{ aluno.id }}</th>
+                            <td>{{ aluno.name }}</td>
+                            <td>{{ aluno.date_birth }}</td>
+                            <td>{{ aluno.gender }}</td>
+                            <td>{{ aluno.email }}</td>
                             <td>
-                                <a href="{% url 'alunos:edit_alunos' alunos.id %}" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="{% url 'alunos:edit_aluno' aluno.id %}" class="btn btn-primary btn-sm">Editar</a>
                             </td>
                             <td>
-                                <a href="{% url 'alunos:delete_aluno' alunos.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                                <a href="{% url 'alunos:delete_aluno' aluno.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>
                         </tr> 
                     {% endfor %}
