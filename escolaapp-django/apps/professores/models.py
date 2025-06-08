@@ -18,7 +18,7 @@ class Professor(models.Model):
     address = models.CharField('Endereco', max_length = 200)
     email = models.EmailField('E-mail', null = False, blank = False)
     cellphone = models.CharField('Numero de Celular', max_length = 10)
-    especializacaoProfessor = models.ManyToManyField(Especializacao, through='EspecializacaoProfessor', blank=True)
+    especializacao_professor = models.ManyToManyField(Especializacao, through = 'EspecializacaoProfessor', blank = True)
 
     class Meta:
         verbose_name = 'Professor'
@@ -31,8 +31,8 @@ class Professor(models.Model):
 class EspecializacaoProfessor(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
-    especializacao = models.ForeignKey(Especializacao, on_delete=models.CASCADE)
+    professor = models.ForeignKey(Professor, on_delete = models.CASCADE)
+    especializacao = models.ForeignKey(Especializacao, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = 'Especializacao do Professor'

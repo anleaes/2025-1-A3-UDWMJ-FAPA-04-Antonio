@@ -11,7 +11,7 @@ def add_professor(request):
     if request.method == 'POST':
         form = ProfessorForm(request.POST)
         if form.is_valid():
-            f = form.save(commit=False)
+            f = form.save(commit = False)
             f.save()
             form.save_m2m()
             return redirect('professores:list_professores')
@@ -21,20 +21,20 @@ def add_professor(request):
 
 def list_professores(request):
     template_name = 'professores/list_professores.html'
-    especializacaoProfessor = EspecializacaoProfessor.objects.filter()
-    especializacao = Especializacao.objects.filter()
-    professor = Professor.objects.filter()
+    especializacao_professores = EspecializacaoProfessor.objects.filter()
+    especializacoes = Especializacao.objects.filter()
+    professores = Professor.objects.filter()
     context = {
-        'professor': professor,
-        'especializao': especializacao,
-        'especializaoProfessor': especializacaoProfessor
+        'professores': professores,
+        'especializao': especializacoes,
+        'especializao_professor': especializacao_professores
     }
     return render(request, template_name, context)
 
 def edit_professor(request, id_professor):
     template_name = 'professores/add_professor.html'
-    context ={}
-    professor = get_object_or_404(Professor, id=id_professor)
+    context = {}
+    professor = get_object_or_404(Professor, id = id_professor)
     if request.method == 'POST':
         form = ProfessorForm(request.POST, instance = professor)
         if form.is_valid():

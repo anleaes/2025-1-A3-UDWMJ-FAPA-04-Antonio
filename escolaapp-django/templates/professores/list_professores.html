@@ -14,7 +14,7 @@
         <div class="row">
             <div class ="col-md-12">
                 <br />
-                    <a href="{% url 'professores:add_professor' %}">Cadastro de novo aluno</a>
+                    <a href="{% url 'professores:add_professor' %}">Cadastro de novo professor</a>
                 <br />
                 <br />
                 <table class="table table-hover">
@@ -36,15 +36,21 @@
                 <tbody>
                     {% for professor in professores %}
                         <tr>
-                            <th scope="row">{{ aluno.id }}</th>
-                            <td>{{ aluno.name }}</td>
-                            <td>{{ aluno.last_name }}</td>
-                            <td>{{ aluno.date_birth }}</td>
-                            <td>{{ aluno.gender }}</td>
-                            <td>{{ aluno.address }}</td>
-                            <td>{{ aluno.email }}</td>
-                            <td>{{ aluno.cellphone }}</td>
-                            <td>{{ aluno.especializacaoProfessor }}</td>
+                            <th scope="row">{{ professor.id }}</th>
+                            <td>{{ professor.name }}</td>
+                            <td>{{ professor.last_name }}</td>
+                            <td>{{ professor.date_birth }}</td>
+                            <td>{{ professor.gender }}</td>
+                            <td>{{ professor.address }}</td>
+                            <td>{{ professor.email }}</td>
+                            <td>{{ professor.cellphone }}</td>
+                            <td>
+                                {% for especializacao_professor in especializacao_professores %}
+                                    {% if especializacao_professor.professor_id == professor.id %}
+                                        <li>{{ especializacao_professor.especializacao }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
                             <td>
                                 <a href="{% url 'professores:edit_professor' professor.id %}" class="btn btn-primary btn-sm">Editar</a>
                             </td>
