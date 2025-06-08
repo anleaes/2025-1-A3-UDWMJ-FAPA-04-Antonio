@@ -18,6 +18,7 @@ class Professor(models.Model):
     address = models.CharField('Endereco', max_length = 200)
     email = models.EmailField('E-mail', null = False, blank = False)
     cellphone = models.CharField('Numero de Celular', max_length = 10)
+    especializacaoProfessor = models.OneToOneField(Especializacao, through='EspecializacaoProfessor', blank=True)
 
     class Meta:
         verbose_name = 'Professor'
@@ -33,10 +34,10 @@ class EspecializacaoProfessor(models.Model):
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
     especializacao = models.ForeignKey(Especializacao, on_delete=models.CASCADE)
 
-class Meta:
-    verbose_name = 'Especializacao do Professor'
-    verbose_name_plural = 'Especializacoes do Professor'
-    ordering =['id']
+    class Meta:
+        verbose_name = 'Especializacao do Professor'
+        verbose_name_plural = 'Especializacoes do Professor'
+        ordering =['id']
 
-def __str__(self):
-    return self.especializacao.name
+    def __str__(self):
+        return self.especializacao.name
