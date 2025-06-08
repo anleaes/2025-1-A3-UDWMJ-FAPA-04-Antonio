@@ -1,7 +1,7 @@
 from django import forms
 from .models import Professor
 
-class ClientForm(forms.ModelForm):
+class ProfessorForm(forms.ModelForm):
 
     class Meta:
         model = Professor
