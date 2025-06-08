@@ -18,7 +18,7 @@ class Professor(models.Model):
     address = models.CharField('Endereco', max_length = 200)
     email = models.EmailField('E-mail', null = False, blank = False)
     cellphone = models.CharField('Numero de Celular', max_length = 10)
-    especializacaoProfessor = models.OneToOneField(Especializacao, through='EspecializacaoProfessor', blank=True)
+    especializacaoProfessor = models.ManyToManyField(Especializacao, through='EspecializacaoProfessor', blank=True)
 
     class Meta:
         verbose_name = 'Professor'
