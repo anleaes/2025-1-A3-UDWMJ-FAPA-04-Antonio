@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Professores - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <br />
+        <h5><b>Lista de Professores</b></h5>
+        <div class="row">
+            <div class ="col-md-12">
+                <br />
+                    <a href="{% url 'professores:add_professor' %}">Cadastro de novo aluno</a>
+                <br />
+                <br />
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Sobrenome</th>
+                    <th scope="col">Ano de Nascimento</th>
+                    <th scope="col">Gênero</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">E-Mail</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col">Especialização</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for professor in professores %}
+                        <tr>
+                            <th scope="row">{{ aluno.id }}</th>
+                            <td>{{ aluno.name }}</td>
+                            <td>{{ aluno.last_name }}</td>
+                            <td>{{ aluno.date_birth }}</td>
+                            <td>{{ aluno.gender }}</td>
+                            <td>{{ aluno.address }}</td>
+                            <td>{{ aluno.email }}</td>
+                            <td>{{ aluno.cellphone }}</td>
+                            <td>{{ aluno.especializacaoProfessor }}</td>
+                            <td>
+                                <a href="{% url 'professores:edit_professor' professor.id %}" class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'professores:delete_professor' professor.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                            </td>
+                        </tr> 
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
