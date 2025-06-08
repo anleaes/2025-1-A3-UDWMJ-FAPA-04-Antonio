@@ -1,7 +1,7 @@
 from django import forms
 from .models import Especializacao
 
-class CategoryForm(forms.ModelForm):
+class EspecializacaoForm(forms.ModelForm):
 
     class Meta:
         model = Especializacao
