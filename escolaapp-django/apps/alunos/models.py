@@ -16,7 +16,7 @@ class Aluno(models.Model):
     gender = models.CharField('Genero', max_length = 1, choices = GENDER_CHOICES)
     address = models.CharField('Endereço', max_length=150)
     email = models.EmailField('E-mail', null = False, blank = False)
-    cellphone = models.CharField('Número de Celular', max_length = 9)
+    cellphone = models.CharField('Número de Celular', max_length = 10)
 
     class Meta:
         verbose_name = 'Aluno'
