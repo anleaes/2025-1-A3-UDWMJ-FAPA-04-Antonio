@@ -1,0 +1,11 @@
+db.sqlite3
+escolaapp_django/__pycache__/*
+
+/apps/core/__pycache__/*
+/apps/core/migrations/*
+
+/apps/students/__pycache__/*
+/apps/students/migrations/*
+
+/apps/specializations/__pycache__/*
+/apps/specializations/migrations/*
