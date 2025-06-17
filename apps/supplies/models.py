@@ -6,7 +6,7 @@ class Supply(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     name = models.CharField('Nome', max_length=50)
-    quantity = models.IntegerField
+    quantity = models.IntegerField('Quantidade')
     category = models.TextField('Categoria', max_length=100) 
     
     class Meta:
