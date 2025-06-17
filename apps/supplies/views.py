@@ -5,7 +5,7 @@ from .models import Supply
 # Create your views here.
 
 def add_supply(request):
-    template_name = 'categories/add_supply.html'
+    template_name = 'supplies/add_supply.html'
     context = {}
     if request.method == 'POST':
         form = SupplyForm(request.POST)
@@ -19,7 +19,7 @@ def add_supply(request):
     return render(request, template_name, context)
 
 def list_supplies(request):
-    template_name = 'categories/list_supplies.html'
+    template_name = 'supplies/list_supplies.html'
     supplies = Supply.objects.filter()
     context = {
         'supplies': supplies
