@@ -18,8 +18,8 @@
                 <form action="" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                   <label for="{{ form.first_name.id_for_label }}">Nome</label>
-                   {{ form.first_name|add_class:"form-control" }}
+                   <label for="{{ form.name.id_for_label }}">Nome</label>
+                   {{ form.name|add_class:"form-control" }}
                 </div>
                 <div class="form-group">
                     <label for="{{ form.course_load.id_for_label }}">Carga Horária</label>
