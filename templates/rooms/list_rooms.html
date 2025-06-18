@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Salas - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <br />
+        <h5><b>Lista de Salas</b></h5>
+        <div class="row">
+            <div class ="col-md-12">
+                <br />
+                    <a href="{% url 'rooms:add_room' %}">Cadastro de nova sala</a>
+                <br />
+                <br />
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Número</th>
+                    <th scope="col">Capacidade</th>
+                    <th scope="col">Materiais</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                        <tr>
+                            <th scope="row">{{ room.id }}</th>
+                            <td>{{ room.number }}</td>
+                            <td>{{ room.capacity }}</td>
+                            <td>{{ room.supplies }}</td>
+                            <td>
+                                <a href="{% url 'rooms:edit_room' room.id %}" class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'rooms:delete_room' room.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                            </td>
+                        </tr> 
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
