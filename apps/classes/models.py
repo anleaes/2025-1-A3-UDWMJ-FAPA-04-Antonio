@@ -7,6 +7,7 @@ class Class(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     name = models.CharField('Nome', max_length=50)
     course_load = models.IntegerField('Carga Horária')
+    description = models.TextField('Descrição', max_length=100) 
     
     class Meta:
         verbose_name = 'Curso'
