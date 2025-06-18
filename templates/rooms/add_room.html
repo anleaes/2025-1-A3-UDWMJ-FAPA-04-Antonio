@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+
+    Adicionar Sala - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <br />
+    <h5><b>Cadastro de Sala</b></h5>
+        <div class="row">
+            <div class ="col-md-12">
+                <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                   <label for="{{ form.number.id_for_label }}">Número</label>
+                   {{ form.number|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.capacity.id_for_label }}">Capacidade</label>
+                    {{ form.capacity|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.supplies.id_for_label }}">Materiais</label>
+                    {{ form.supplies|add_class:"form-control" }}
+                </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>       
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
