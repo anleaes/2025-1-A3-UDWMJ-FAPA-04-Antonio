@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'specializations.apps.SpecializationsConfig',
     'teachers.apps.TeachersConfig',
     'supplies.apps.SuppliesConfig',
+    'rooms.apps.RoomsConfig',
 ]
 
 MIDDLEWARE = [
