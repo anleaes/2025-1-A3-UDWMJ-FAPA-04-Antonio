@@ -1,7 +1,7 @@
 from django import forms
 from .models import Enrollment
 
-class ClientForm(forms.ModelForm):
+class EnrollmentForm(forms.ModelForm):
 
     class Meta:
         model = Enrollment
