@@ -13,9 +13,9 @@ class Enrollment(models.Model):
         ('Finalizada', 'Finalizada'),
         ('Cancelada', 'Cancelada'),
     )
-    status = models.CharField('Status', choices=STATUS_CHOICES, null=True, blank=False, default='Ativa')
+    status = models.CharField('Status', choices=STATUS_CHOICES, max_length=20, null=True, blank=False, default='Ativa')
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    classes = models.ManyToManyField(Class, through='ClassesEnrollment')
+    classes = models.ManyToManyField(Class)
     
     class Meta:
         verbose_name = 'Matrícula'
@@ -23,4 +23,4 @@ class Enrollment(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return self.dateStart
+        return self.date_start
