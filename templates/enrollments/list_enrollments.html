@@ -36,12 +36,18 @@
                             <td>{{ enrollment.date_start }}</td>
                             <td>{{ enrollment.status }}</td>
                             <td>{{ enrollment.student }}</td>
-                            <td>{{ enrollment.classes }}</td>
                             <td>
-                                <a href="{% url 'categories:edit_enrollment' enrollment.id %}" class="btn btn-primary btn-sm">Editar</a>
+                                {% for classesEnrollment in classesEnrollments %}
+                                    {% if classesEnrollment.enrollment_id == enrollment.id %}
+                                        <li>{{ classesEnrollment.class }}</li>
+                                    {% endif %}
+                                {% endfor %}
                             </td>
                             <td>
-                                <a href="{% url 'categories:delete_enrollment' enrollment.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                                <a href="{% url 'enrollments:edit_enrollment' enrollment.id %}" class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'enrollments:delete_enrollment' enrollment.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>
                         </tr> 
                     {% endfor %}
