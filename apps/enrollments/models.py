@@ -1,3 +1,26 @@
 from django.db import models
+from students.models import Student
+from classes.models import Class
 
 # Create your models here.
+
+class Enrollment(models.Model):
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    dateStart = models.DateField('Data de Início', auto_now_add=True)
+    STATUS_CHOICES = (
+        ('Ativa', 'Ativa'),
+        ('Finalizada', 'Finalizada'),
+        ('Cancelada', 'Cancelada'),
+    )
+    status = models.CharField('Status', choices=STATUS_CHOICES, null=True, blank=False, default='Ativa')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    classes = models.ManyToManyField(Class, through='ClassesEnrollment')
+    
+    class Meta:
+        verbose_name = 'Matrícula'
+        verbose_name_plural = 'Matrículas'
+        ordering =['id']
+
+    def __str__(self):
+        return self.dateStart
