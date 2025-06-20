@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rooms.apps.RoomsConfig',
     'classes.apps.ClassesConfig',
     'accounts.apps.AccountsConfig',
+    'enrollments.apps.EnrollmentsConfig',
 ]
 
 MIDDLEWARE = [
