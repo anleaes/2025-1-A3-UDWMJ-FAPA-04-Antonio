@@ -7,7 +7,7 @@ from classes.models import Class
 class Enrollment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    date_start = models.DateField('Data de Início', auto_now_add=True)
+    date_start = models.DateField('Data de Início')
     STATUS_CHOICES = (
         ('Ativa', 'Ativa'),
         ('Finalizada', 'Finalizada'),
