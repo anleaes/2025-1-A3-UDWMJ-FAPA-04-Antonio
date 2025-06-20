@@ -23,4 +23,4 @@ class Enrollment(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return self.dateStart
+        return self.date_start
