@@ -7,7 +7,7 @@ from classes.models import Class
 class Enrollment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    date_start = models.DateField('Data de Início', auto_now_add=True)
+    date_start = models.DateField('Data de Início')
     STATUS_CHOICES = (
         ('Ativa', 'Ativa'),
         ('Finalizada', 'Finalizada'),
@@ -15,7 +15,7 @@ class Enrollment(models.Model):
     )
     status = models.CharField('Status', choices=STATUS_CHOICES, max_length=20, null=True, blank=False, default='Ativa')
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    classes = models.ManyToManyField(Class)
+    classesEnrollment = models.ManyToManyField(Class)
     
     class Meta:
         verbose_name = 'Matrícula'
